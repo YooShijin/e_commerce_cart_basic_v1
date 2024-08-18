@@ -39,7 +39,7 @@ export const CartItem = ({ data }) => {
             <p className="text-lg font-semibold text-black">{data.name}</p>
           </div>
 
-          <div className="mt-1 flex text-sm h-8 md:h-auto">
+          <div className="mt-1 flex text-sm h-8 md:h-auto my-2 md:my-auto">
             <IconButton
               onClick={decrementQuantity}
               icon={<Minus size={15} className="rounded-none " />}
@@ -54,11 +54,13 @@ export const CartItem = ({ data }) => {
               onClick={incrementQuantity}
               icon={<Plus size={15} className="rounded-none " />}
             />
-            <div className="absolute z-10 right-0 top-0">
-              <IconButton onClick={onRemoveFromCart} icon={<X size={25} />} />
-            </div>
           </div>
+
           <Currency value={data.price * data.quantity} className="mt-1" />
+        </div>
+
+        <div className="absolute  z-10 right-0 top-0">
+          <IconButton onClick={onRemoveFromCart} icon={<X size={25} />} />
         </div>
       </div>
     </li>

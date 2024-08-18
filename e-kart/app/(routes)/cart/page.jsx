@@ -14,7 +14,9 @@ const CartPage = () => {
           <h1 className="text-3xl font-bold text-black">Shopping Cart</h1>
           <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-7">
-              {cart.items.length === 0 && <h3 className="text-2xl">Your cart is empty</h3>}
+              {cart.items.length === 0 && (
+                <h3 className="text-2xl">Your cart is empty</h3>
+              )}
               {cart?.item?.length === 0 && (
                 <p className="text-neutral-500">No items added to the cart</p>
               )}

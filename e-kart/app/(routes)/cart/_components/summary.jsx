@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/ui/button";
+import CouponComponent from "@/components/ui/coupon_component";
 import Currency from "@/components/ui/currency";
 import { useCart } from "@/hooks/use-cart";
 
@@ -9,13 +10,19 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 const Summary = () => {
-  const [isDiscount, setIsDiscount] = useState({ value: 10, percent: true });
+  const [isDiscount, setIsDiscount] = useState({ value: 3, percent: true });
   const items = useCart((state) => state.items);
   const removeAll = useCart((state) => state.removeAll);
 
   const totalPrice = items.reduce((total, item) => {
     return total + Number(item.price) * Number(item.quantity);
   }, 0);
+  const setDiscount = ({ value, percent }) => {
+    setIsDiscount({
+      value,
+      percent,
+    });
+  };
 
   const router = useRouter();
   const onCheckout = () => {
@@ -61,6 +68,7 @@ const Summary = () => {
       <Button onClick={onCheckout} className="w-full mt-6">
         Checkout
       </Button>
+      <CouponComponent setDiscount={setDiscount} />
     </div>
   );
 };
