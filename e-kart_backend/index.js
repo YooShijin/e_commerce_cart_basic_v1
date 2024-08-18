@@ -29,4 +29,4 @@ const uploadProduct = async (name, price, description, imageUrl) => {
   console.log(post);
 };
 
-const server = app.listen(3001);
+const server = app.listen(5000, console.log("Server listening on port 5000"));
